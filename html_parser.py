@@ -23,7 +23,7 @@ class HtmlParser(object):
 	# 解析正文内容，整理字典返回
 	def parser_content(self, url, html_cont):
 		# 解析bs对象
-		bsObj = BeautifulSoup(html_cont, 'html.parser')
+		bsObj = BeautifulSoup(html_cont, 'lxml', from_encoding='gbk')
 		# 获取标题
 		title = bsObj.find("div", {"id": "NewsTitle"}).get_text().strip()
 		if title is None:
